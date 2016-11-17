@@ -1,0 +1,40 @@
+<div>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Todo List</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+
+  </div>
+
+  <div class="container">
+    <div class="dashboard">
+      <div class="col-md-12">
+        <input [(ngModel)]="newTodo" class="col-md-9 description" />
+        <div class="col-md-1">
+          <a (click)="saveNewTodo()" class="save"><span class="glyphicon glyphicon-ok"></span></a>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+      </div>
+      <div class="col-md-12" *ngFor="let todo of todos">
+        <input #todoDescription class="col-md-9 description" value="{{todo.description}}" />
+        <div class="col-md-1">
+          <a (click)="saveTodo(todoDescription.value, todo.guid)" class="save"><span class="glyphicon glyphicon-ok"></span></a>
+        </div>
+        <div class="col-md-1">
+          <a (click)="deleteTodo(todo.guid)" class="done"><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
+        <br/>
+        <br/>
+      </div>
+    </div>
+  </div>
+
+</div>
